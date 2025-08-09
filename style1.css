@@ -1,0 +1,276 @@
+/* --- General Page Styles --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+}
+
+/* --- Navigation Bar Styles --- */
+nav {
+    background-color: #2B4875; /* Dark blue */
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background-color: #2B4875; /* Lighter dark blue */
+    border-radius: 5px;
+}
+
+/* --- Container and Box Styles --- */
+.container {
+  display: flex;
+  flex-direction: column; /* Stack boxes vertically */
+  gap: 1.5em;
+  margin: 2em;
+  text-align: center;
+}
+
+.box {
+  width: 100%; /* Stretch full width */
+  min-height: 100px;
+  background-color: #ffffff;
+  border: 2px solid #2B4875;
+  border-radius: 10px;
+  padding: 1em;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box p {
+    font-size: 1em;
+    color: #003366; /* Dark blue text */
+    text-align: center;
+    margin: 0;
+}
+
+/* --- Footer Styles --- */
+.contact-section {
+    background-color: #2B4875; /* Dark background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 2em 1em;
+    margin-top: 2em;
+    border-top: 4px solid #b1d8ff;
+}
+
+.contact-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.contact-section p {
+    font-size: 1em;
+    margin: 0.3em 0;
+}
+
+/* --- Page Height and Wrapper --- */
+/* Make the page take full height */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Wrapper to push footer down */
+.page-wrapper {
+    min-height: calc(100vh - 150px); /* Leave space for footer height */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+/* --- Slider Styles --- */
+.slider {
+  width: 100%;
+  max-width: 600px;
+  height: 450px; /* taller to fit captions */
+  margin: 2em auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #d3e0f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slides-wrapper {
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  height: 450px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide.active {
+  display: flex; /* Show the active slide */
+}
+
+.slide-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.slides img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 0.95em;
+  color: #000000;
+}
+
+/* --- Slider Animation Keyframes --- */
+@keyframes slide {
+  0%   { transform: translateX(0%); }
+  30%  { transform: translateX(0%); }
+  33%  { transform: translateX(-100%); }
+  63%  { transform: translateX(-100%); }
+  66%  { transform: translateX(-200%); }
+  96%  { transform: translateX(-200%); }
+  100% { transform: translateX(0%); }
+}
+
+/* --- Box Title Styles --- */
+.box-title {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+.box-title h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #00509e;
+}
+
+/* --- Slider Arrow Buttons --- */
+.arrow {
+  background: #eee;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+}
+
+/* --- Dark Mode (Readability Mode) Styles --- */
+.readability-mode {
+  background-color: #181818 !important;
+  color: #f1f1f1 !important;
+}
+
+.readability-mode .box,
+.readability-mode .slider,
+.readability-mode .nav-links li a,
+.readability-mode .contact-section {
+  background-color: #222 !important;
+  color: #f1f1f1 !important;
+  border-color: #444 !important;
+}
+
+.readability-mode .arrow {
+  background: #333 !important;
+  color: #f1f1f1 !important;
+}
+
+.readability-mode .box-title h3 {
+  color: #90cdf4 !important;
+}
+.readability-mode,
+.readability-mode * {
+  color: #fff !important;
+}
+
+/* --- Responsive Styles for Mobile Devices --- */
+@media (max-width: 700px) {
+  .page-wrapper {
+    padding: 0 0.5em;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .slider,
+  .slides-wrapper {
+    max-width: 98vw;
+    height: 220px;
+    min-height: 0;
+  }
+  .slides img {
+    max-width: 95vw;
+    max-height: 140px;
+  }
+  .container {
+    margin: 1em 0.2em;
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
+  }
+  .box {
+    padding: 1em 0.5em;
+    min-width: 0;
+    width: 100%;
+  }
+  .arrow {
+    font-size: 1.5rem;
+    padding: 0.3em 0.7em;
+    margin: 0 2px;
+  }
+  .contact-section {
+    padding: 1em 0.5em;
+    font-size: 0.95em;
+  }
+}
+

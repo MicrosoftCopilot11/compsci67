@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css"> 
+</head>
+<body>
+  <button id="readability-toggle" aria-label="Toggle dark mode" style="margin: 1em 0;">Toggle Dark Mode</button>
+  <div class="page-wrapper">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="Website.html">Home</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="Other.html">Other</a></li>
+      </ul>
+    </nav>
+    <div class="slider" role="region" aria-label="Image gallery slider">
+      <button class="arrow left-arrow" onclick="prevSlide()" aria-label="Previous slide" tabindex="0">&#8592;</button>
+      <div class="slides-wrapper">
+        <div class="slides">
+          <a href="image1.html" class="slide" aria-label="WakaHuia Interaction" tabindex="0">
+            <div class="slide-content">
+              <img src="Picture1.jpg" alt="WakaHuia Interaction" width="1000" height="400">
+              <p class="caption">An Interaction with a stake holder.</p>
+            </div>
+          </a>
+          <a href="image2.html" class="slide" aria-label="Waka making process" tabindex="0">
+            <div class="slide-content">
+              <img src="Waka.jpg" alt="Waka making process" width="400" height="400">
+              <p class="caption">The making process of the WakaHuia</p>
+            </div> 
+          </a>
+          <a href="image3.html" class="slide" aria-label="WakaHuia box" tabindex="0">
+            <div class="slide-content">
+              <img src="WakaHuia.jpg" alt="WakaHuia box" width="800" height="400">
+              <p class="caption">Waka Huia – A traditional Māori treasure box.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <button class="arrow right-arrow" onclick="nextSlide()" aria-label="Next slide" tabindex="0">&#8594;</button>
+    </div>
+    <main>
+      <div class="container">
+        <div class="box">
+          <div class="box-title"><h3>Description:</h3></div>
+          <p>This webpage is to showcase Henry Vincent's design from his product class. The gallery above shows multiple images of his creation the "Waka Huia", including the making process and use by the stake holder (Henry's Grandma). The Waka Huia is used to hold special adornments such as pendants and huia feathers for dressing the hair. They were created by the Maori orignally in the early 1800s. </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="box">
+          <div class="box-title"><h3>Services:</h3></div>
+          <img src="saw.jpg" alt="Saw" width="400" height="400">
+          <p></p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="box">
+          <div class="box-title"><h3>Other:</h3></div>
+          <p></p>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="contact-section">
+    <h2>Contact Us</h2>
+    <p>Email: L.G.Berryman@student.saintkentigern.com</p>
+    <p>Phone: +(64) 0274758765</p>
+    <p>Address: 130 Pakuranga Road Auckland</p>
+  </footer>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slidesContainer = document.querySelector('.slides');
+
+    function showSlide(index) {
+      slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Initialize slider
+    showSlide(currentSlide);
+
+    // Readability toggle
+    document.getElementById('readability-toggle').addEventListener('click', function() {
+      document.body.classList.toggle('readability-mode');
+    });
+  </script>
+</body>
+</html>
+
